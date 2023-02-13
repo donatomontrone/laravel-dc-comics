@@ -5,8 +5,8 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/DC_Comics_logo.svg/600px-DC_Comics_logo.svg.png" alt="Logo" width="50" height="50" class="d-inline-block">
             </a>
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
-                <a class="nav-link" href="{{route('comics.index')}}">Comics</a>
+                <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{route('home')}}">Home</a>
+                <a class="nav-link {{Route::currentRouteName() == 'comics.index' ? 'active' : '' }}" href="{{route('comics.index')}}">Comics</a>
             </div>
         </div>
     </nav>
