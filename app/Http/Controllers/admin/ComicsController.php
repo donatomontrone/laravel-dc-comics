@@ -37,7 +37,14 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // E' possibile inserire i dati a mano come fatto in precedenza nel seeder, altrimenti tramite la funzione fill per poi andare a gestire i campi del Model. RICORDARSI il redirect nella singola risorsa passandoli ovviamente l'id
+        $newComic = new Comic();
+        $newComic->fill($data);
+        $newComic->save();
+
+
+        return redirect()->route('admin.comics.show', $newComic->id);
     }
 
     /**
