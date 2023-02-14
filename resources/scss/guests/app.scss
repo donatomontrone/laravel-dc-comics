@@ -1,0 +1,174 @@
+@use './variables.scss' as *;
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    section.header-aside{
+        background-color: $main-color ;
+        ul{
+            text-align: end;
+            li{
+                list-style: none;
+                display: inline-block;
+                padding-left: 2rem;
+                a{
+                    text-decoration: none;
+                    color: white;
+                    font-size: .80rem;
+                    display: block;
+                }
+            }
+        }
+    }
+    nav img.logo-img{
+        width: 60%;
+        
+    }
+}
+
+
+main{
+    background-color: $main-bg-color;
+    div.jumbotron {
+        background-image: url(../assets/img/jumbotron.jpg);
+        background-position: start;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 400px;
+    }
+
+    section.current-series {
+        position: relative;
+        padding-top: 3rem;
+    
+        h4.series-title {
+            color: $light-color;
+            background-color: $main-color;
+            width: fit-content;
+            font-size: 1.5rem;
+            padding: .4rem .8rem;
+            position: absolute;
+            top: -18px;
+        }
+    
+        a {
+            display: block;
+            width: fit-content;
+            text-decoration: none;
+            color: $light-color;
+            background-color: $main-color;
+            margin: 0 auto;
+            padding: .5rem 2.5rem;
+            font-size: .8rem;
+            font-weight: bold;
+    
+        }
+    }
+    
+}
+
+footer {
+    background-color: $footer-bg-color;
+    background-image: url(../assets/img/footer-bg.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    section.banner {
+        background-color: $main-color;
+    
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            height: 100%;
+            color: $light-color;
+    
+            li {
+                display: flex;
+                padding: 1.5rem;
+                font-size: .8rem;
+                align-items: center;
+    
+                img {
+                    width: 44px;
+                    aspect-ratio: 3/2;
+                    object-fit: contain;
+                    mix-blend-mode: normal;
+                    margin-right: .5rem;
+    
+                }
+            }
+        }
+    }
+
+    section.dc-logo {
+        background-image: url(../assets/img/dc-logo-bg.png);
+        background-position: right center;
+        background-size: initial;
+        background-repeat: no-repeat;
+        width: 90%;
+        margin-left: 22px;
+        padding-bottom: 30px;
+    }
+}
+
+
+nav {
+    display: flex;
+
+    ul li {
+        font-size: .8rem;
+        list-style: none;
+        margin-right: .7rem;
+        padding: .1rem;
+        color: grey;
+
+
+        h5 {
+            font-size: 1rem;
+            margin: 1.5rem 0 .5rem 0;
+            color: $light-color;
+        }
+    }
+}
+
+section.footer-bottom {
+    background-color: $footer-bg-color;
+    padding: 2rem 0;
+
+    div.container {
+        div.col-3 > a {
+            text-decoration: none;
+            color: $light-color;
+            font-weight: bold;
+            font-size: .8rem;
+            display: inline-block;
+            padding: .6rem;
+            border: 2px solid $main-color
+        }
+
+        div.socials {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            h4 {
+                color: $main-color;
+                padding-right: 1rem;
+                font-size: 1rem;
+                padding: 0;
+                margin: 0;
+            }
+            img {
+                width: 25px;
+                margin: 0 .4rem;
+            }
+        }
+    }
+}
+
