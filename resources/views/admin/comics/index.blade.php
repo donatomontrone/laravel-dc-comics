@@ -4,6 +4,9 @@
     <main>
         <div class="container">
             <div class="row">
+                <div class="col-12 text-end">
+                    <a href="{{route('admin.comics.create')}}" class="btn btn-primary btn-sm">New Comic</a>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -24,7 +27,7 @@
                             <td>{{$comic->sale_date}}</td>
                             <td>{{$comic->type}}</td>
                             <td>
-                                <a href="{{route('comics.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
+                                <a href="{{route('admin.comics.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
                                 <a href="#" class="btn btn-success btn-sm">Edit</a>
                                 <a href="#" class="btn btn-danger btn-sm">Delete</a>
                             </td>
