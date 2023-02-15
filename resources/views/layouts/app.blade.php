@@ -11,4 +11,5 @@
         @include('partials.admin.header')
         @yield('main-content')
     </body>
+    @yield('scripts')
 </html>

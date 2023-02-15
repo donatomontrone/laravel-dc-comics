@@ -23,7 +23,7 @@
                     <h5>{{$comic->series}} - {{$comic->type}}</h5>
                     <p>{{$comic->description}}</p>
                     <a href="{{route('admin.comics.edit', $comic->id)}}" class="btn btn-warning">Edit</a>
-                                <form action="{{route('admin.comics.destroy', $comic->id)}}" method="post" class="d-inline-block">
+                                <form action="{{route('admin.comics.destroy', $comic->id)}}" method="post" class="d-inline-block" data-element-name="{{$comic->title}}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger ">Delete</button>
@@ -32,5 +32,7 @@
             </div>
         </div>
     </main>
-
+@endsection
+@section('scripts')
+    @vite('resources/js/deleteConfirm.js')
 @endsection
