@@ -11,13 +11,14 @@
             @foreach ($comics as $comic)
                 <div class="col-6 col-md-3 col-lg-2">
                     <div class="my-card">
-                        <img src="{{$comic->img_path}}" alt="{{$comic->title}}" class="img-fluid">
+                        <a href="{{route('guests.comics.show', $comic->id)}}">
+                        <img src="{{$comic->img_path}}" alt="{{$comic->title}}" class="img-fluid"></a>
                         <p class="text-white"> {{$comic->title}}</p>
                     </div>
                 </div>
             @endforeach
             </div>
-            <a href="#"> LOAD MORE </a>
+            <a href="#" class="button"> LOAD MORE </a>
         </div>
     </section>
 </main>

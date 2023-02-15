@@ -55,7 +55,7 @@ main{
             top: -18px;
         }
     
-        a {
+        a.button {
             display: block;
             width: fit-content;
             text-decoration: none;
@@ -81,6 +81,7 @@ footer {
 
     section.banner {
         background-color: $main-color;
+        width: 100vw;
     
         ul {
             list-style: none;
@@ -90,7 +91,6 @@ footer {
             color: $light-color;
     
             li {
-                display: flex;
                 padding: 1.5rem;
                 font-size: .8rem;
                 align-items: center;
@@ -170,5 +170,54 @@ section.footer-bottom {
             }
         }
     }
+}
+
+
+section.current-comic{
+    background-color: $light-color;
+    div.image-container{
+        height: 60px;
+        background-color: $main-color;
+        position: relative;
+        margin-bottom: 5rem;
+
+        div.img-info{
+            position: absolute;
+            height: 287px;
+            z-index: 1;
+            width: 190px;
+            top: -20;
+            left: 25;
+            bottom: 0;
+            border: 1px solid $light-color;
+            margin-bottom: 1rem;
+
+            div.comic-type{
+                position: absolute;
+                background-color: #2FA9D9;
+                color: $light-color;
+
+                p{
+                    font-size: .8rem;
+                    padding: 1px 5px;
+                }
+            }
+        }
+    }
+
+            div.green-price{
+            background-color: #55BA5A;
+            padding: 1rem .8rem;
+            color: #BBF980;
+            margin-bottom: .8rem;
+
+            span{
+                color: $light-color;
+            }
+        }
+
+        div.description p{
+            font-size: .85rem;
+        }
 }
 
