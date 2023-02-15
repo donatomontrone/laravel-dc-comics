@@ -8,7 +8,7 @@
                     <a href="{{route('admin.comics.create')}}" class="btn btn-primary btn-sm">New Comic</a>
                 </div>
                 <div class="col-1 border rounded">
-                    <h1 class="text-center">{{$count}}</h1>
+                    <h1 class="text-center m-0 p-0">{{$count}}</h1>
                 </div>
                 <table class="table">
                     <thead>
