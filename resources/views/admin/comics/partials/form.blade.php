@@ -7,7 +7,7 @@
         <input type="text" id="inputTitle" class="form-control" name="title" value="{{$comic->title }}">
         {{-- Description --}}
         <label for="inputDescription" class="form-label">Description</label>
-        <textarea id="inputDesscription" class="form-control" name="description">{{$comic->description}}</textarea>
+        <textarea id="inputDesscription" rows="6" class="form-control" name="description">{{$comic->description}}</textarea>
 
         {{-- Image Path --}}
         <label for="inputPath" class="form-label">Image Link</label>

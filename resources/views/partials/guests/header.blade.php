@@ -26,10 +26,10 @@
             <div class="collapse navbar-collapse nav-list" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="{{route('guests.home')}}">HOME</a>
+                        <a class="nav-link fw-bold{{str_starts_with(Route::currentRouteName(), 'guests.home') ? 'active' : '' }}" href="{{route('guests.home')}}">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold " aria-current="page" href="#">COMICS</a>
+                        <a class="nav-link fw-bold{{str_starts_with(Route::currentRouteName(), 'guests.comics') ? 'active' : '' }}" href="{{route('guests.comics.index')}}">COMICS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="#">MOVIES</a>

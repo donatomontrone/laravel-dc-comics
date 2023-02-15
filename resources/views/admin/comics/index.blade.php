@@ -31,7 +31,7 @@
                             <td>{{$comic->type}}</td>
                             <td>
                                 <a href="{{route('admin.comics.show', $comic->id)}}" class="btn btn-primary btn-sm">Show</a>
-                                <a href="{{route('admin.comics.edit', $comic->id)}}" class="btn btn-success btn-sm">Edit</a>
+                                <a href="{{route('admin.comics.edit', $comic->id)}}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{route('admin.comics.destroy', $comic->id)}}" method="post" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')

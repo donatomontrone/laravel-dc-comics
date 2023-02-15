@@ -15,6 +15,12 @@
                     <h2>    {{$comic->title}}</h2>
                     <h5>{{$comic->series}} - {{$comic->type}}</h5>
                     <p>{{$comic->description}}</p>
+                    <a href="{{route('admin.comics.edit', $comic->id)}}" class="btn btn-warning">Edit</a>
+                                <form action="{{route('admin.comics.destroy', $comic->id)}}" method="post" class="d-inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger ">Delete</button>
+                                </form>
                 </div>
             </div>
         </div>

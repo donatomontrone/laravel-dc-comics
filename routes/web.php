@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\ComicController as AdminComicController;
+use App\Http\Controllers\guests\ComicController as GuestsComicController; 
 use App\Http\Controllers\admin\HomeController as AdminHomeController;
 use App\Http\Controllers\guests\HomeController as GuestsHomeController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 
-    Route::get('/', [GuestsHomeController::class, 'home'])->name('guests.home');
+Route::prefix('/')->name('guests.')->group(function () {
+    Route::get('', [GuestsHomeController::class, 'home'])->name('home');
+    Route::resource('comics', GuestsComicController::class);
+});
 
 
 // Route::get('/comics', [ComicsController::class, 'index'])->name('comics.index');
