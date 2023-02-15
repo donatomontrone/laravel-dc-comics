@@ -6,6 +6,13 @@
     <main>
         <div class="container">
             <div class="row">
+                @if (session('info-message'))
+                <div class="col-12">
+                    <div class="alert alert-{{session('alert')}}">
+                        {{session('info-message')}}
+                    </div>
+                </div>
+                @endif
                 <div class="col-6 text-center mt-4">
                     <img src="{{$comic->img_path}}" alt="{{$comic->title}}" class="img-fluid d-inline-block mb-sm-3">
                     <h6 class="mb-5">{{$comic->price}}&euro; - {{$comic->sale_date}}</h6>

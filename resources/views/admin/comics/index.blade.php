@@ -4,6 +4,13 @@
     <main>
         <div class="container">
             <div class="row">
+                @if (session('info-message'))
+                <div class="col-12">
+                    <div class="alert alert-{{session('alert')}}">
+                        {{session('info-message')}}
+                    </div>
+                </div>
+                @endif
                 <div class="col-12 text-end">
                     <a href="{{route('admin.comics.create')}}" class="btn btn-primary btn-sm">New Comic</a>
                 </div>

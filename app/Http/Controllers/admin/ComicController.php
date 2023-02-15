@@ -43,9 +43,7 @@ class ComicController extends Controller
         $newComic = new Comic();
         $newComic->fill($data);
         $newComic->save();
-
-
-        return redirect()->route('admin.comics.show', $newComic->id);
+        return redirect()->route('admin.comics.show', $newComic->id)->with('info-message', "$newComic->title was successfully created!")->with('alert', 'primary');
     }
 
     /**
@@ -81,7 +79,7 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $comic->update($data);
-        return redirect()->route('admin.comics.show', $comic->id);
+        return redirect()->route('admin.comics.show', $comic->id)->with('info-message', "$comic->title has been edited successfully!")->with('alert', 'success');
     }
 
     /**
@@ -93,6 +91,6 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('admin.comics.index');
+        return redirect()->route('admin.comics.index')->with('info-message', "The comic $comic->title as been delected!")->with('alert', 'danger');
     }
 }
