@@ -8,6 +8,37 @@ use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
+
+    public $rules = [
+        'title' => 'required|min:3|max:100|string',
+        'description' => 'required|min:10',
+        'img_path' => 'required|url|min:10',
+        'price' => 'required|decimal:2|',
+        'series' => 'required|min:3|max:50|string',
+        'sale_date' => 'required|date_format:Y-m-d',
+        'type' => 'required|min:3|max:30|string',
+    ];
+
+    public $messages = [
+        'title.required' => 'Inserisci il titolo del fumetto.',
+        'title.min' => 'Il titolo è troppo breve.',
+        'title.max' => 'Il titolo è troppo lungo.',
+        'description.required' => 'Inserisci la descrizione del fumetto.',
+        'description.min' => 'La descrizione è troppo corta.',
+        'img_path.required' => 'Inserisci l\'url della copertina.',
+        'img_path.url' => 'Url troppo corto o non valido.',
+        'img_path.min' => 'Url troppo corto o non valido.',
+        'price.required' => 'Inserisci il prezzo.',
+        'price.decimal' => 'Deve avere due cifre decimali',
+        'series.required' => 'Inserisci la serie del fumetto.',
+        'series.min' => 'La serie è troppo corta.',
+        'series.max' => 'La serie è troppo lunga.',
+        'sale_date.required' => 'Inserisci la data di pubblicazione.',
+        'sale_date.date_format' => 'Inserisci un data in formato YYYY-MM-DD.',
+        'type.required' => 'Inserisci il tipo di fumetto.',
+        'type.min' => 'Il tipo è troppo corto.',
+        'type.max' => 'Il tipo è troppo lungo.',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -47,38 +78,7 @@ class ComicController extends Controller
         // $table->string('type', 30);
 
 
-        $request->validate([
-            'title' => 'required|min:3|max:100|string',
-            'description' => 'required|min:10',
-            'img_path' => 'required|url|min:10',
-            'price' => 'required|decimal:2|',
-            'series' => 'required|min:3|max:50|string',
-            'sale_date' => 'required|date_format:Y-m-d',
-            'type' => 'required|min:3|max:30|string',
-        ],
-        [
-            'title.required' => 'Inserisci il titolo del fumetto.',
-            'title.min' => 'Il titolo è troppo breve.',
-            'title.max' => 'Il titolo è troppo lungo.',
-            'description.required' => 'Inserisci la descrizione del fumetto.',
-            'description.min' => 'La descrizione è troppo corta.',
-            'img_path.required' => 'Inserisci l\'url della copertina.',
-            'img_path.url' => 'Url troppo corto o non valido.',
-            'img_path.min' => 'Url troppo corto o non valido.',
-            'price.required' => 'Inserisci il prezzo.',
-            'price.decimal' => 'Deve avere due cifre decimali',
-            'series.required' => 'Inserisci la serie del fumetto.',
-            'series.min' => 'La serie è troppo corta.',
-            'series.max' => 'La serie è troppo lunga.',
-            'sale_date.required' => 'Inserisci la data di pubblicazione.',
-            'sale_date.date_format' => 'Inserisci un data in formato YYYY-MM-DD.',
-            'type.required' => 'Inserisci il tipo di fumetto.',
-            'type.min' => 'Il tipo è troppo corto.',
-            'type.max' => 'Il tipo è troppo lungo.',
-        ]);
-
-
-        $data = $request->all();
+        $data = $request->validate($this->rules, $this->messages);
         // E' possibile inserire i dati a mano come fatto in precedenza nel seeder, altrimenti tramite la funzione fill per poi andare a gestire i campi del Model. RICORDARSI il redirect nella singola risorsa passandoli ovviamente l'id
         $newComic = new Comic();
         $newComic->fill($data);
@@ -117,37 +117,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic) 
     {
-        $request->validate([
-            'title' => 'required|min:3|max:100|string',
-            'description' => 'required|min:10',
-            'img_path' => 'required|url|min:10',
-            'price' => 'required|decimal:2|',
-            'series' => 'required|min:3|max:50|string',
-            'sale_date' => 'required|date_format:Y-m-d',
-            'type' => 'required|min:3|max:30|string',
-        ],
-        [
-            'title.required' => 'Inserisci il titolo del fumetto.',
-            'title.min' => 'Il titolo è troppo breve.',
-            'title.max' => 'Il titolo è troppo lungo.',
-            'description.required' => 'Inserisci la descrizione del fumetto.',
-            'description.min' => 'La descrizione è troppo corta.',
-            'img_path.required' => 'Inserisci l\'url della copertina.',
-            'img_path.url' => 'Url troppo corto o non valido.',
-            'img_path.min' => 'Url troppo corto o non valido.',
-            'price.required' => 'Inserisci il prezzo.',
-            'price.decimal' => 'Deve avere due cifre decimali',
-            'series.required' => 'Inserisci la serie del fumetto.',
-            'series.min' => 'La serie è troppo corta.',
-            'series.max' => 'La serie è troppo lunga.',
-            'sale_date.required' => 'Inserisci la data di pubblicazione.',
-            'sale_date.date_format' => 'Inserisci un data in formato YYYY-MM-DD.',
-            'type.required' => 'Inserisci il tipo di fumetto.',
-            'type.min' => 'Il tipo è troppo corto.',
-            'type.max' => 'Il tipo è troppo lungo.',
-        ]);
-
-        $data = $request->all();
+        $data = $request->validate($this->rules, $this->messages);
+        
         $comic->update($data);
         return redirect()->route('admin.comics.show', $comic->id)->with('info-message', "$comic->title has been edited successfully!")->with('alert', 'success');
     }
